@@ -3,6 +3,7 @@
 
 format: jb-book
 root: intro
+
 parts:
   - caption: Introduction To AI
     chapters:
@@ -14,6 +15,6 @@ parts:
 
   - caption: Numerical Analysis
     chapters:
-    - file : compilation/tp1
-    - file : compilation/tp2
+    - file : numerical_analysis/tp1
+    - file : numerical_analysis/tp2
 
