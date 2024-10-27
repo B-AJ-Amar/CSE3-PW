@@ -1,8 +1,7 @@
 
 title: CSE 3 PW
 author: B A.J Amar
-logo: logo.png
-
+# language: "ar"
 
 execute:
   execute_notebooks: force
@@ -24,6 +23,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
+  # extra_css: ["_static/rtl.css"]
   use_issues_button: true
   use_repository_button: true
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
