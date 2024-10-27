@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Int &#8212; CSE 3 PW</title>
+    <title>PW2 : Int &amp; Float &#8212; CSE 3 PW</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'numerical_analysis/tp2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Numerical Analysis" href="tp1.html" />
+    <link rel="prev" title="PW1 : Numpy (arrays &amp; matrixs )" href="tp1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -163,7 +163,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to CSE 3 PW Jupyter Book
                 </a>
             </li>
         </ul>
@@ -177,10 +177,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="tp1.html">Numerical Analysis</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Int</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="tp1.html">PW1 : Numpy (arrays &amp; matrixs )</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PW2 : Int &amp; Float</a></li>
 </ul>
 
     </div>
@@ -358,7 +356,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Int</h1>
+    <h1>PW2 : Int & Float</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,10 +366,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Int</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int">Int</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -382,8 +379,10 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="int">
-<h1>Int<a class="headerlink" href="#int" title="Link to this heading">#</a></h1>
+  <section id="pw2-int-float">
+<h1>PW2 : Int &amp; Float<a class="headerlink" href="#pw2-int-float" title="Link to this heading">#</a></h1>
+<section id="int">
+<h2>Int<a class="headerlink" href="#int" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">100</span>
@@ -427,7 +426,7 @@ max = 127
 -56
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Dell\AppData\Local\Temp\ipykernel_9880\1540788497.py:11: RuntimeWarning: overflow encountered in scalar add
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Dell\AppData\Local\Temp\ipykernel_18340\1540788497.py:11: RuntimeWarning: overflow encountered in scalar add
   print(i+j) # overflow
 </pre></div>
 </div>
@@ -435,7 +434,7 @@ max = 127
 </div>
 </section>
 <section id="float">
-<h1>Float<a class="headerlink" href="#float" title="Link to this heading">#</a></h1>
+<h2>Float<a class="headerlink" href="#float" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
@@ -457,12 +456,13 @@ y+1e-8 = 1.000000010000000e+00
 y+1e50 = 1.000000000000000e+50
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Dell\AppData\Local\Temp\ipykernel_9880\3906295119.py:3: RuntimeWarning: overflow encountered in cast
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Dell\AppData\Local\Temp\ipykernel_18340\3906295119.py:3: RuntimeWarning: overflow encountered in cast
   print(f&quot;x+float32(1e50) = {x+np.float32(1e50):1.15e}&quot;)
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -501,7 +501,7 @@ y+1e50 = 1.000000000000000e+50
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Numerical Analysis</p>
+        <p class="prev-next-title">PW1 : Numpy (arrays &amp; matrixs )</p>
       </div>
     </a>
 </div>
@@ -521,10 +521,9 @@ y+1e50 = 1.000000000000000e+50
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Int</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int">Int</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float">Float</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
