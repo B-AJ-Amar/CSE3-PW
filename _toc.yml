@@ -9,6 +9,9 @@ parts:
     chapters:
     - file : ai/tp1
 
+    - file : ai/tp2_0
+    - file : ai/tp2_1
+
   - caption: Compilation
     chapters:
     - file : compilation/tp1
