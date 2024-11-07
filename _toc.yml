@@ -7,10 +7,10 @@ root: intro
 parts:
   - caption: Introduction To AI
     chapters:
-    - file : ai/tp1
-
-    - file : ai/tp2_0
-    - file : ai/tp2_1
+    - file : ai/tp0
+    - file : ai/tp1_0
+    - file : ai/tp1_1
+    - file : ai/tp2
 
   - caption: Compilation
     chapters:
@@ -20,4 +20,5 @@ parts:
     chapters:
     - file : numerical_analysis/tp1
     - file : numerical_analysis/tp2
+    - file : numerical_analysis/tp3
 
