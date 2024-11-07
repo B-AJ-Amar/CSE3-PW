@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PW 2: Prolog with python (Group 1 3ING) &#8212; CSE 3 PW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ai/tp2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PW1 : LexicalAnalyzer" href="../compilation/tp1.html" />
+    <link rel="prev" title="PW 1.1 : Prolog Exercise - Family Relations" href="tp1_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CSE 3 PW</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CSE 3 PW Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction To AI</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tp0.html">PW 0: Intro to Python (Group 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp1_0.html">PW 1.0: Prolog In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp1_1.html">PW 1.1 : Prolog Exercise - Family Relations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PW 2: Prolog with python (Group 1 3ING)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Compilation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../compilation/tp1.html">PW1 : LexicalAnalyzer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../numerical_analysis/tp1.html">PW1 : Numpy (arrays &amp; matrixs )</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical_analysis/tp2.html">PW2 : Int &amp; Float</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical_analysis/tp3.html">Serie 1</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/B-AJ-Amar/CSE3-PW" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/B-AJ-Amar/CSE3-PW/issues/new?title=Issue%20on%20page%20%2Fai/tp2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ai/tp2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>PW 2: Prolog with python (Group 1 3ING)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-optional">Exercise 3 (Optional)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plant-care-diagnostic-system">Plant Care Diagnostic System</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pw-2-prolog-with-python-group-1-3ing">
+<h1>PW 2: Prolog with python (Group 1 3ING)<a class="headerlink" href="#pw-2-prolog-with-python-group-1-3ing" title="Link to this heading">#</a></h1>
+<p><font size="5" color="red">No AI tools allowed! 🤖⛔</p>
+<section id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h2>
+<p>The family tree structure is shown as follows:</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAa4AAADkCAYAAADAQcAkAAAAAXNSR0IArs4c6QAAM3d0RVh0bXhmaWxlACUzQ214ZmlsZSUyMGhvc3QlM0QlMjJFbGVjdHJvbiUyMiUyMG1vZGlmaWVkJTNEJTIyMjAyNC0xMS0wNVQyMSUzQTEyJTNBNTcuMjkzWiUyMiUyMGFnZW50JTNEJTIyTW96aWxsYSUyRjUuMCUyMChXaW5kb3dzJTIwTlQlMjAxMC4wJTNCJTIwV2luNjQlM0IlMjB4NjQpJTIwQXBwbGVXZWJLaXQlMkY1MzcuMzYlMjAoS0hUTUwlMkMlMjBsaWtlJTIwR2Vja28pJTIwZHJhdy5pbyUyRjIzLjEuNSUyMENocm9tZSUyRjEyMC4wLjYwOTkuMTA5JTIwRWxlY3Ryb24lMkYyOC4xLjAlMjBTYWZhcmklMkY1MzcuMzYlMjIlMjBldGFnJTNEJTIyZ3Z4UEFkSzdxOXpLSXpUVWhyenolMjIlMjB2ZXJzaW9uJTNEJTIyMjMuMS41JTIyJTIwdHlwZSUzRCUyMmRldmljZSUyMiUyMHNjYWxlJTNEJTIyMSUyMiUyMGJvcmRlciUzRCUyMjAlMjIlM0UlMEElMjAlMjAlM0NkaWFncmFtJTIwbmFtZSUzRCUyMlBhZ2UtMSUyMiUyMGlkJTNEJTIyMXVaSnhDc0stRlpKUzJ2ZnlWWWElMjIlM0UlMEElMjAlMjAlMjAlMjAlM0NteEdyYXBoTW9kZWwlMjBkeCUzRCUyMjkwMCUyMiUyMGR5JTNEJTIyNTM1JTIyJTIwZ3JpZCUzRCUyMjElMjIlMjBncmlkU2l6ZSUzRCUyMjEwJTIyJTIwZ3VpZGVzJTNEJTIyMSUyMiUyMHRvb2x0aXBzJTNEJTIyMSUyMiUyMGNvbm5lY3QlM0QlMjIxJTIyJTIwYXJyb3dzJTNEJTIyMSUyMiUyMGZvbGQlM0QlMjIxJTIyJTIwcGFnZSUzRCUyMjElMjIlMjBwYWdlU2NhbGUlM0QlMjIxJTIyJTIwcGFnZVdpZHRoJTNEJTIyODUwJTIyJTIwcGFnZUhlaWdodCUzRCUyMjExMDAlMjIlMjBtYXRoJTNEJTIyMCUyMiUyMHNoYWRvdyUzRCUyMjAlMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0Nyb290JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjIwJTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjIxJTIyJTIwcGFyZW50JTNEJTIyMCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMSUyMiUyMHZhbHVlJTNEJTIyT21hciUyMCUyMCVFMiU5NCU4MCVFMiU5NCU4MCVFMiU5NCU4MCVFMiU5NCU4MCUyMEZhdGltYSUyMiUyMHN0eWxlJTNEJTIydGV4dCUzQmh0bWwlM0QxJTNCYWxpZ24lM0RjZW50ZXIlM0J2ZXJ0aWNhbEFsaWduJTNEbWlkZGxlJTNCcmVzaXphYmxlJTNEMCUzQnBvaW50cyUzRCU1QiU1RCUzQmF1dG9zaXplJTNEMSUzQnN0cm9rZUNvbG9yJTNEbm9uZSUzQmZpbGxDb2xvciUzRG5vbmUlM0Jmb250U3R5bGUlM0QxJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjI5NSUyMiUyMHklM0QlMjI4MCUyMiUyMHdpZHRoJTNEJTIyMTMwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJMUlgyblZsQTdfVUdSZHZvZmNYeC0yJTIyJTIwdmFsdWUlM0QlMjIlMjIlMjBzdHlsZSUzRCUyMmVuZEFycm93JTNEY2xhc3NpYyUzQmh0bWwlM0QxJTNCcm91bmRlZCUzRDAlM0Jmb250U3R5bGUlM0QxJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHdpZHRoJTNEJTIyNTAlMjIlMjBoZWlnaHQlM0QlMjI1MCUyMiUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjM1MCUyMiUyMHklM0QlMjIxMDAlMjIlMjBhcyUzRCUyMnNvdXJjZVBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjIyMzAlMjIlMjB5JTNEJTIyMTUwJTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14R2VvbWV0cnklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTMlMjIlMjB2YWx1ZSUzRCUyMkFobWVkJTI2YW1wJTNCbmJzcCUzQiUyMCVFMiU5NCU4MCVFMiU5NCU4MCVFMiU5NCU4MCVFMiU5NCU4MCUyMEhhbmVuZSUyMiUyMHN0eWxlJTNEJTIydGV4dCUzQmh0bWwlM0QxJTNCYWxpZ24lM0RjZW50ZXIlM0J2ZXJ0aWNhbEFsaWduJTNEbWlkZGxlJTNCcmVzaXphYmxlJTNEMCUzQnBvaW50cyUzRCU1QiU1RCUzQmF1dG9zaXplJTNEMSUzQnN0cm9rZUNvbG9yJTNEbm9uZSUzQmZpbGxDb2xvciUzRG5vbmUlM0Jmb250U3R5bGUlM0QxJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjIwMCUyMiUyMHklM0QlMjIxNDIlMjIlMjB3aWR0aCUzRCUyMjE1MCUyMiUyMGhlaWdodCUzRCUyMjMwJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtNCUyMiUyMHZhbHVlJTNEJTIyTGVpbGElMjAlRTIlOTQlODAlRTIlOTQlODAlRTIlOTQlODAlRTIlOTQlODAlMjBLaGFsZWQlMjIlMjBzdHlsZSUzRCUyMnRleHQlM0JodG1sJTNEMSUzQmFsaWduJTNEY2VudGVyJTNCdmVydGljYWxBbGlnbiUzRG1pZGRsZSUzQnJlc2l6YWJsZSUzRDAlM0Jwb2ludHMlM0QlNUIlNUQlM0JhdXRvc2l6ZSUzRDElM0JzdHJva2VDb2xvciUzRG5vbmUlM0JmaWxsQ29sb3IlM0Rub25lJTNCZm9udFN0eWxlJTNEMSUyMiUyMHZlcnRleCUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHglM0QlMjIzNzAlMjIlMjB5JTNEJTIyMTQyJTIyJTIwd2lkdGglM0QlMjIxMzAlMjIlMjBoZWlnaHQlM0QlMjIzMCUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTUlMjIlMjB2YWx1ZSUzRCUyMiUyMiUyMHN0eWxlJTNEJTIyZW5kQXJyb3clM0RjbGFzc2ljJTNCaHRtbCUzRDElM0Jyb3VuZGVkJTNEMCUzQmVudHJ5WCUzRDAuMjMxJTNCZW50cnlZJTNEMC40JTNCZW50cnlEeCUzRDAlM0JlbnRyeUR5JTNEMCUzQmVudHJ5UGVyaW1ldGVyJTNEMCUzQmZvbnRTdHlsZSUzRDElMjIlMjBlZGdlJTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIwd2lkdGglM0QlMjI1MCUyMiUyMGhlaWdodCUzRCUyMjUwJTIyJTIwcmVsYXRpdmUlM0QlMjIxJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyMzYwJTIyJTIweSUzRCUyMjEwMiUyMiUyMGFzJTNEJTIyc291cmNlUG9pbnQlMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjQwMC4wMyUyMiUyMHklM0QlMjIxNDglMjIlMjBhcyUzRCUyMnRhcmdldFBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhHZW9tZXRyeSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtNyUyMiUyMHZhbHVlJTNEJTIyWWFzc21pbmUlMjIlMjBzdHlsZSUzRCUyMnRleHQlM0JodG1sJTNEMSUzQmFsaWduJTNEY2VudGVyJTNCdmVydGljYWxBbGlnbiUzRG1pZGRsZSUzQnJlc2l6YWJsZSUzRDAlM0Jwb2ludHMlM0QlNUIlNUQlM0JhdXRvc2l6ZSUzRDElM0JzdHJva2VDb2xvciUzRG5vbmUlM0JmaWxsQ29sb3IlM0Rub25lJTNCZm9udFN0eWxlJTNEMSUyMiUyMHZlcnRleCUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHglM0QlMjIxOTAlMjIlMjB5JTNEJTIyMjA4JTIyJTIwd2lkdGglM0QlMjI4MCUyMiUyMGhlaWdodCUzRCUyMjMwJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtOCUyMiUyMHZhbHVlJTNEJTIyUmFtaSUyMiUyMHN0eWxlJTNEJTIydGV4dCUzQmh0bWwlM0QxJTNCYWxpZ24lM0RjZW50ZXIlM0J2ZXJ0aWNhbEFsaWduJTNEbWlkZGxlJTNCcmVzaXphYmxlJTNEMCUzQnBvaW50cyUzRCU1QiU1RCUzQmF1dG9zaXplJTNEMSUzQnN0cm9rZUNvbG9yJTNEbm9uZSUzQmZpbGxDb2xvciUzRG5vbmUlM0Jmb250U3R5bGUlM0QxJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjI5NSUyMiUyMHklM0QlMjIyMDglMjIlMjB3aWR0aCUzRCUyMjUwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJMUlgyblZsQTdfVUdSZHZvZmNYeC0xMCUyMiUyMHZhbHVlJTNEJTIyVGFyaXElMjIlMjBzdHlsZSUzRCUyMnRleHQlM0JodG1sJTNEMSUzQmFsaWduJTNEY2VudGVyJTNCdmVydGljYWxBbGlnbiUzRG1pZGRsZSUzQnJlc2l6YWJsZSUzRDAlM0Jwb2ludHMlM0QlNUIlNUQlM0JhdXRvc2l6ZSUzRDElM0JzdHJva2VDb2xvciUzRG5vbmUlM0JmaWxsQ29sb3IlM0Rub25lJTNCZm9udFN0eWxlJTNEMSUyMiUyMHZlcnRleCUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHglM0QlMjIzOTAlMjIlMjB5JTNEJTIyMjA4JTIyJTIwd2lkdGglM0QlMjI1MCUyMiUyMGhlaWdodCUzRCUyMjMwJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMTIlMjIlMjB2YWx1ZSUzRCUyMlNhcmElMjZhbXAlM0JuYnNwJTNCJTIwJUUyJTk0JTgwJUUyJTk0JTgwJUUyJTk0JTgwJUUyJTk0JTgwJTIwWmFpZCUyMiUyMHN0eWxlJTNEJTIydGV4dCUzQmh0bWwlM0QxJTNCYWxpZ24lM0RjZW50ZXIlM0J2ZXJ0aWNhbEFsaWduJTNEbWlkZGxlJTNCcmVzaXphYmxlJTNEMCUzQnBvaW50cyUzRCU1QiU1RCUzQmF1dG9zaXplJTNEMSUzQnN0cm9rZUNvbG9yJTNEbm9uZSUzQmZpbGxDb2xvciUzRG5vbmUlM0Jmb250U3R5bGUlM0QxJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjQ0MCUyMiUyMHklM0QlMjIyMDglMjIlMjB3aWR0aCUzRCUyMjEyMCUyMiUyMGhlaWdodCUzRCUyMjMwJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMTMlMjIlMjB2YWx1ZSUzRCUyMkxpbmElMjIlMjBzdHlsZSUzRCUyMnRleHQlM0JodG1sJTNEMSUzQmFsaWduJTNEY2VudGVyJTNCdmVydGljYWxBbGlnbiUzRG1pZGRsZSUzQnJlc2l6YWJsZSUzRDAlM0Jwb2ludHMlM0QlNUIlNUQlM0JhdXRvc2l6ZSUzRDElM0JzdHJva2VDb2xvciUzRG5vbmUlM0JmaWxsQ29sb3IlM0Rub25lJTNCZm9udFN0eWxlJTNEMSUyMiUyMHZlcnRleCUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHglM0QlMjI0NTUlMjIlMjB5JTNEJTIyMjc3JTIyJTIwd2lkdGglM0QlMjI1MCUyMiUyMGhlaWdodCUzRCUyMjMwJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMTQlMjIlMjB2YWx1ZSUzRCUyMlNhbWlyJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0JyZXNpemFibGUlM0QwJTNCcG9pbnRzJTNEJTVCJTVEJTNCYXV0b3NpemUlM0QxJTNCc3Ryb2tlQ29sb3IlM0Rub25lJTNCZmlsbENvbG9yJTNEbm9uZSUzQmZvbnRTdHlsZSUzRDElMjIlMjB2ZXJ0ZXglM0QlMjIxJTIyJTIwcGFyZW50JTNEJTIyMSUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214R2VvbWV0cnklMjB4JTNEJTIyNTA1JTIyJTIweSUzRCUyMjI3OCUyMiUyMHdpZHRoJTNEJTIyNjAlMjIlMjBoZWlnaHQlM0QlMjIzMCUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTE1JTIyJTIwdmFsdWUlM0QlMjIlMjIlMjBzdHlsZSUzRCUyMmVuZEFycm93JTNEY2xhc3NpYyUzQmh0bWwlM0QxJTNCcm91bmRlZCUzRDAlM0JlbnRyeVglM0QwLjM3NSUzQmVudHJ5WSUzRDAuMDY3JTNCZW50cnlEeCUzRDAlM0JlbnRyeUR5JTNEMCUzQmVudHJ5UGVyaW1ldGVyJTNEMCUzQmZvbnRTdHlsZSUzRDElMjIlMjBlZGdlJTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlMjB0YXJnZXQlM0QlMjJMUlgyblZsQTdfVUdSZHZvZmNYeC03JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHdpZHRoJTNEJTIyNTAlMjIlMjBoZWlnaHQlM0QlMjI1MCUyMiUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjI2OCUyMiUyMHklM0QlMjIxNjUlMjIlMjBhcyUzRCUyMnNvdXJjZVBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjIyMzMlMjIlMjB5JTNEJTIyMjA1JTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14R2VvbWV0cnklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTE2JTIyJTIwdmFsdWUlM0QlMjIlMjIlMjBzdHlsZSUzRCUyMmVuZEFycm93JTNEY2xhc3NpYyUzQmh0bWwlM0QxJTNCcm91bmRlZCUzRDAlM0Jmb250U3R5bGUlM0QxJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHdpZHRoJTNEJTIyNTAlMjIlMjBoZWlnaHQlM0QlMjI1MCUyMiUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjI3OS4zMDc2OTIzMDc2OTI0JTIyJTIweSUzRCUyMjE2OCUyMiUyMGFzJTNEJTIyc291cmNlUG9pbnQlMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjMyMCUyMiUyMHklM0QlMjIyMTAlMjIlMjBhcyUzRCUyMnRhcmdldFBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDQXJyYXklMjBhcyUzRCUyMnBvaW50cyUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyMjc3JTIyJTIweSUzRCUyMjE2NiUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRkFycmF5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhHZW9tZXRyeSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMTglMjIlMjB2YWx1ZSUzRCUyMiUyMiUyMHN0eWxlJTNEJTIyZW5kQXJyb3clM0RjbGFzc2ljJTNCaHRtbCUzRDElM0Jyb3VuZGVkJTNEMCUzQmZvbnRTdHlsZSUzRDElMjIlMjBlZGdlJTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIwd2lkdGglM0QlMjI1MCUyMiUyMGhlaWdodCUzRCUyMjUwJTIyJTIwcmVsYXRpdmUlM0QlMjIxJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyNDQwJTIyJTIweSUzRCUyMjE2MCUyMiUyMGFzJTNEJTIyc291cmNlUG9pbnQlMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjQ2Ni4yNSUyMiUyMHklM0QlMjIyMTclMjIlMjBhcyUzRCUyMnRhcmdldFBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhHZW9tZXRyeSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMTklMjIlMjB2YWx1ZSUzRCUyMiUyMiUyMHN0eWxlJTNEJTIyZW5kQXJyb3clM0RjbGFzc2ljJTNCaHRtbCUzRDElM0Jyb3VuZGVkJTNEMCUzQmVudHJ5WCUzRDAuNSUzQmVudHJ5WSUzRDAuNCUzQmVudHJ5RHglM0QwJTNCZW50cnlEeSUzRDAlM0JlbnRyeVBlcmltZXRlciUzRDAlM0Jmb250U3R5bGUlM0QxJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTIwdGFyZ2V0JTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMTMlMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIwd2lkdGglM0QlMjI1MCUyMiUyMGhlaWdodCUzRCUyMjUwJTIyJTIwcmVsYXRpdmUlM0QlMjIxJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyNDk3LjE3NjQ3MDU4ODIzNTM2JTIyJTIweSUzRCUyMjIyOSUyMiUyMGFzJTNEJTIyc291cmNlUG9pbnQlMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjQ4Mi4yNSUyMiUyMHklM0QlMjIyNzQlMjIlMjBhcyUzRCUyMnRhcmdldFBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDQXJyYXklMjBhcyUzRCUyMnBvaW50cyUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyNDk2JTIyJTIweSUzRCUyMjIzMSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRkFycmF5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhHZW9tZXRyeSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyTFJYMm5WbEE3X1VHUmR2b2ZjWHgtMjAlMjIlMjB2YWx1ZSUzRCUyMiUyMiUyMHN0eWxlJTNEJTIyZW5kQXJyb3clM0RjbGFzc2ljJTNCaHRtbCUzRDElM0Jyb3VuZGVkJTNEMCUzQmZvbnRTdHlsZSUzRDElMjIlMjBlZGdlJTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIwd2lkdGglM0QlMjI1MCUyMiUyMGhlaWdodCUzRCUyMjUwJTIyJTIwcmVsYXRpdmUlM0QlMjIxJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyNTA1LjM2NzM0NjkzODc3NTQlMjIlMjB5JTNEJTIyMjMzJTIyJTIwYXMlM0QlMjJzb3VyY2VQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyNTMyLjE0Mjg1NzE0Mjg1NzElMjIlMjB5JTNEJTIyMjgxJTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14R2VvbWV0cnklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTIxJTIyJTIwdmFsdWUlM0QlMjIlMjIlMjBzdHlsZSUzRCUyMmVuZEFycm93JTNEY2xhc3NpYyUzQmh0bWwlM0QxJTNCcm91bmRlZCUzRDAlM0Jmb250U3R5bGUlM0QxJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHdpZHRoJTNEJTIyNTAlMjIlMjBoZWlnaHQlM0QlMjI1MCUyMiUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjQyNSUyMiUyMHklM0QlMjIxNjElMjIlMjBhcyUzRCUyMnNvdXJjZVBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjI0MjAlMjIlMjB5JTNEJTIyMjEwJTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14R2VvbWV0cnklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTIyJTIyJTIwdmFsdWUlM0QlMjJBZGVsJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0JyZXNpemFibGUlM0QwJTNCcG9pbnRzJTNEJTVCJTVEJTNCYXV0b3NpemUlM0QxJTNCc3Ryb2tlQ29sb3IlM0Rub25lJTNCZmlsbENvbG9yJTNEbm9uZSUzQmZvbnRTdHlsZSUzRDElMjIlMjB2ZXJ0ZXglM0QlMjIxJTIyJTIwcGFyZW50JTNEJTIyMSUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214R2VvbWV0cnklMjB4JTNEJTIyNTcwJTIyJTIweSUzRCUyMjI3OCUyMiUyMHdpZHRoJTNEJTIyNTAlMjIlMjBoZWlnaHQlM0QlMjIzMCUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMkxSWDJuVmxBN19VR1Jkdm9mY1h4LTIzJTIyJTIwdmFsdWUlM0QlMjIlMjIlMjBzdHlsZSUzRCUyMmVuZEFycm93JTNEY2xhc3NpYyUzQmh0bWwlM0QxJTNCcm91bmRlZCUzRDAlM0Jmb250U3R5bGUlM0QxJTIyJTIwZWRnZSUz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" style="width:50%;"/>
+<p>The following predicates are used to define the <strong>facts base</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">male(X)</span></code> for males.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">female(X)</span></code> for females.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent(X,</span> <span class="pre">Y)</span></code> for X is the parent of Y.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wife(X,</span> <span class="pre">Y)</span></code> for X is the wife of Y.</p></li>
+</ul>
+<section id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Define the facts</p></li>
+<li><p>Define the predicate <code class="docutils literal notranslate"><span class="pre">sibling(X,</span> <span class="pre">Y)</span></code> which specifies that X and Y are siblings.</p></li>
+<li><p>Define the predicate <code class="docutils literal notranslate"><span class="pre">cousin(X,</span> <span class="pre">Y)</span></code> to specify that X and Y are cousins.</p></li>
+<li><p>Define the predicate <code class="docutils literal notranslate"><span class="pre">uncle(X,</span> <span class="pre">Y)</span></code>(عم / خال) to specify that X is the uncle of Y, and the predicate <code class="docutils literal notranslate"><span class="pre">aunt(X,</span> <span class="pre">Y)</span></code>(عمة / خالة).</p></li>
+<li><p>Define the predicate <code class="docutils literal notranslate"><span class="pre">niece(X,</span> <span class="pre">Y)</span></code>(ابنة الأخ أو ابنة الأخت)  to specify that X is the niece of Y, and the predicate <code class="docutils literal notranslate"><span class="pre">nephew(X,</span> <span class="pre">Y)</span></code> (ابن الأخ أو ابن الأخت).</p></li>
+<li><p>Define the predicate <code class="docutils literal notranslate"><span class="pre">ancestor_of(X,</span> <span class="pre">Y)</span></code> (السلف هو الشخص الذي ينحدر منه فرد آخر عبر الأجيال) to specify that X is an ancestor of Y.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define facts and rules</span>
+<span class="c1"># The Pytholog code for defining this knowledge base is shown below:</span>
+<span class="kn">import</span> <span class="nn">pytholog</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="c1"># Create a new knowledge base named &#39;family&#39;</span>
+<span class="n">family_kb</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">KnowledgeBase</span><span class="p">(</span><span class="s2">&quot;family&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add facts about family relationships</span>
+<span class="n">family_kb</span><span class="p">([</span>
+    
+    <span class="c1"># @ FACTS</span>
+    
+    <span class="c1"># ? male female</span>
+    <span class="s2">&quot;male(omar)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(khaled)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(ahmed)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(rami)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(tariq)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(zaid)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(adel)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;male(samir)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;female(fatima)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;female(hanene)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;female(leila)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;female(sara)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;female(yassmine)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;female(lina)&quot;</span><span class="p">,</span>
+    
+    
+    <span class="c1"># ? parent</span>
+    <span class="c1"># o/f ===================</span>
+    <span class="s2">&quot;parent(omar,ahmed)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(omar,leila)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;parent(fatima,ahmed)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(fatima,leila)&quot;</span><span class="p">,</span>
+    <span class="c1"># a/h =============</span>
+    <span class="s2">&quot;parent(ahmed,rami)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(ahmed,yassmine)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(hanene,rami)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(hanene,yassmine)&quot;</span><span class="p">,</span>
+
+    <span class="c1"># k/l =============</span>
+    <span class="s2">&quot;parent(khaled,tariq)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(khaled,sara)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;parent(leila,tariq)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(leila,sara)&quot;</span><span class="p">,</span>
+    
+    <span class="c1"># s/z ===================</span>
+    <span class="s2">&quot;parent(zaid,lina)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(zaid,samir)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(zaid,adel)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;parent(sara,lina)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(sara,samir)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parent(sara,adel)&quot;</span><span class="p">,</span>
+    
+    
+    <span class="c1"># ? wife</span>
+    
+    <span class="s2">&quot;wife(fatima,omar)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wife(hanene,ahmed)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wife(leila,khaled)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wife(sara,zaid)&quot;</span><span class="p">,</span>
+    
+    <span class="c1"># @ RULES</span>
+    
+    <span class="s2">&quot;siblings(X,Y) :-  parent(Z,X), parent(Z,Y) , neq(X,Y) &quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;uncle(X,Y) :- male(X) , parent(Z,Y), siblings(X,Z) &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aunt(X,Y) :- female(X) , parent(Z,Y), siblings(X,Z) &quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;cousin(X,Y) :- uncle(Z,X) , parent(Z,Y)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cousin(X,Y) :- aunt(Z,X) , parent(Z,Y)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cousin(X,Y) :- cousin(Y,X)&quot;</span><span class="p">,</span>
+    
+    
+    <span class="s2">&quot;nieces(X,Y) :- aunt(Y,X) &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nieces(X,Y) :- uncle(Y,X) &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nephew(X,Y) :- nieces(X,Y)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;ancestor_of(X,Y) :- parent(X,Y) &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ancestor_of(X,Y) :- parent(X,Z), ancestor_of(Z,Y) &quot;</span><span class="p">,</span>
+    
+    
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Answer with Prolog the following questions:</p>
+<ol class="arabic simple">
+<li><p>Is Ahmed the ancestor of Lina?</p></li>
+<li><p>Who are the siblings of Leila?</p></li>
+<li><p>Is Yassmine the niece of Sara?</p></li>
+<li><p>List all ancestors of Adel.</p></li>
+<li><p>Find all nephews of Hanene.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer the questions</span>
+<span class="c1"># print(family_kb.query(pl.Expr(&#39;ancestor_of(ahmed, lina)&#39;))) # false</span>
+<span class="c1"># print(family_kb.query(pl.Expr(&#39;siblings(lina,X)&#39;))) # false</span>
+<span class="c1"># print(family_kb.query(pl.Expr(&#39;nieces(yassmine,sara)&#39;))) # false</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">family_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;ancestor_of(X, adel)&#39;</span><span class="p">)))</span> <span class="c1"># false</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;X&#39;: &#39;sara&#39;}, {&#39;X&#39;: &#39;zaid&#39;}, {&#39;X&#39;: &#39;khaled&#39;}, {&#39;X&#39;: &#39;leila&#39;}, {&#39;X&#39;: &#39;fatima&#39;}, {&#39;X&#39;: &#39;omar&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
+<p>Define a <strong>knowledge base</strong> for the following statements:</p>
+<ul class="simple">
+<li><p>The <strong>cow</strong> is a <strong>herbivorous</strong> animal. (البقرة حيوان عاشب)</p></li>
+<li><p>The <strong>parrot</strong> is an <strong>intelligent</strong> animal. (الببغاء حيوان ذكي)</p></li>
+<li><p>The <strong>fox</strong> is a <strong>cunning</strong> animal. (الثعلب حيوان ماكر )</p></li>
+<li><p>Every <strong>cunning</strong> animal is <strong>omnivorous</strong>. (كل حيوان ماكر هو قارت)</p></li>
+<li><p>An <strong>omnivorous</strong> animal <strong>eats</strong> both <strong>plants</strong> and <strong>meat</strong>. (الحيوان القارت يأكل النباتات واللحم)</p></li>
+<li><p><strong>Omnivorous</strong> can <strong>eats</strong> any <strong>herbivorous</strong> (الحيوان القارت يمكنه أن يأكل أي حيوان عاشب)</p></li>
+<li><p>An <strong>intelligent</strong> animal can <strong>learn behaviors</strong>. (الحيوان الذكي يمكنه تعلم السلوكيات)</p></li>
+<li><p>Both <strong>omnivores</strong> and <strong>herbivores</strong> <strong>need sunlight</strong> for energy. (كل من القوارت والعواشب يحتاجون لأشعة الشمس للطاقة)</p></li>
+<li><p>An animal is considered a <strong>strong survivor</strong> if it is both <strong>carnivorous</strong> and <strong>cunning</strong>. (يُعتبر الحيوان قوي البقاء إذا كان كلاً من لاحم وماكر)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the knowledge base</span>
+<span class="n">animal_kb</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">KnowledgeBase</span><span class="p">(</span><span class="s2">&quot;animal&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add facts about animal relationships</span>
+<span class="n">animal_kb</span><span class="p">([</span>
+    <span class="s2">&quot;herbivorous(cow)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;intelligent(parrot)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cunning(fox)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;omnivorous(X) :- cunning(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eat(X,meat) :- omnivorous(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eat(X,plants) :- omnivorous(X)&quot;</span><span class="p">,</span>
+    
+    <span class="c1"># &quot;omnivorous(X) :- eat(X,meat) , eat(X,plants)&quot;,</span>
+    <span class="s2">&quot;omnivorous(X) :- herbivorous(Y), eat(X,Y) &quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;learn_b(X) :- intelligent(X) &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;need_sun(X) :- herbivorous(X) &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;need_sun(X) :- omnivorous(X) &quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;stron_survivor(X) :- eat(X,meat) , cunning(X)  &quot;</span><span class="p">,</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Answer with Prolog this question</strong>: Is there any animal that can eat plants?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer the question</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animal_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;eat(_, plants)&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Yes&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Answer with Prolog this question</strong>: What types of food does the fox eat?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answer the question</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animal_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;eat(fox,X)&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;X&#39;: &#39;meat&#39;}, {&#39;X&#39;: &#39;plants&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3-optional">
+<h2>Exercise 3 (Optional)<a class="headerlink" href="#exercise-3-optional" title="Link to this heading">#</a></h2>
+<section id="plant-care-diagnostic-system">
+<h3>Plant Care Diagnostic System<a class="headerlink" href="#plant-care-diagnostic-system" title="Link to this heading">#</a></h3>
+<p>This exercise is designed to simulate a simple expert system to help plant enthusiasts <strong>diagnose common plant health issues based on symptoms and provide care recommendations</strong>.</p>
+<p>You will <strong>choose the symptoms observed in your plant by entering the numbers corresponding to each symptom from a menu</strong>. Based on the symptoms you select, the system will analyze them to provide a possible diagnosis and a recommended care solution.</p>
+<p>The expert system uses a set of rules to make a diagnosis based on combinations of symptoms. Here’s a <strong>list of possible symptoms and how they are interpreted in the system</strong>: <strong>wilting (ذبول), yellow_leaves (أوراق صفراء), brown_spots (بقع بنية), drooping (تدلي), mold (عفن), slow_growth (بطء النمو), leaf_drop (تساقط الأوراق), weak_stems (سيقان ضعيفة)</strong>.</p>
+<p>Diagnostic Rules
+The system uses the following rules to diagnose conditions based on combinations of symptoms:</p>
+<table>
+  <tr>
+    <th>Diagnosis (التشخيص)</th>
+    <th>Symptoms</th>
+    <th>Care Recommendation (التوصية بالرعاية)</th>
+  </tr>
+  <tr>
+    <td>Overwatering (إفراط في الري)</td>
+    <td>wilting, yellow_leaves</td>
+    <td>Reduce watering frequency and ensure proper drainage. (قلل من تكرار الري وتأكد من التصريف الجيد)</td>
+  </tr>
+  <tr>
+    <td>Fungal Infection (عدوى فطرية)</td>
+    <td>brown_spots, mold</td>
+    <td>Remove affected leaves and apply a fungicide. (قم بإزالة الأوراق المصابة وضع مبيداً فطرياً)</td>
+  </tr>
+  <tr>
+    <td>Nutrient Deficiency (نقص المغذيات)</td>
+    <td>yellow_leaves, slow_growth</td>
+    <td>Add balanced fertilizer and monitor growth. (أضف سمادًا متوازنًا وتابع النمو)</td>
+  </tr>
+  <tr>
+    <td>Insufficient Light (نقص الضوء)</td>
+    <td>weak_stems, slow_growth</td>
+    <td>Move plant to a brighter location. (انقل النبات إلى مكان أكثر إضاءة)</td>
+  </tr>
+  <tr>
+    <td>Underwatering (نقص في الري)</td>
+    <td>drooping, leaf_drop</td>
+    <td>Increase watering frequency and check soil moisture. (زد من تكرار الري وتحقق من رطوبة التربة)</td>
+  </tr>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plants_kb</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">KnowledgeBase</span><span class="p">(</span><span class="s2">&quot;plants&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add facts about plants relationships</span>
+<span class="n">plants_kb</span><span class="p">([</span>
+    <span class="s2">&quot;drooping(plant_a)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;leaf_drop(plant_a)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;mold(plant_b)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brown_spot(plant_b)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;wilting(plant_c)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;yellow_leavs(plant_c)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;yellow_leavs(plant_d)&quot;</span><span class="p">,</span>
+    
+    <span class="s2">&quot;overwatering(X) :- wilting(X), yellow_leavs(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fungal_infection(X) :- brown_spot(X), mold(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nutrient_deficiency (X) :- slow_growth(X), yellow_leavs(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;insufficient_light (X) :- weak_stems(X), slow_growth(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;underwatering(X) :- drooping(X), leaf_drop(X)&quot;</span><span class="p">,</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;overwatering(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;fungal_infection(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;nutrient_deficiency(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;insufficient_light(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;underwatering(X)&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;X&#39;: &#39;plant_c&#39;}]
+[{&#39;X&#39;: &#39;plant_b&#39;}]
+[&#39;No&#39;]
+[&#39;No&#39;]
+[{&#39;X&#39;: &#39;plant_a&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="o">=</span> <span class="p">[</span>   
+    <span class="s2">&quot;overwatering(X) :- wilting(X), yellow_leavs(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fungal_infection(X) :- brown_spot(X), mold(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nutrient_deficiency (X) :- slow_growth(X), yellow_leavs(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;insufficient_light (X) :- weak_stems(X), slow_growth(X)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;underwatering(X) :- drooping(X), leaf_drop(X)&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">i_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;wilting&quot;</span><span class="p">,</span><span class="s2">&quot;yellow_leavs&quot;</span><span class="p">]</span>
+<span class="n">x</span><span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;isues : &quot;</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="si">}</span><span class="s2">(myplant)&quot;</span>
+
+<span class="n">rules</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plants_kb</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">KnowledgeBase</span><span class="p">(</span><span class="s2">&quot;plants&quot;</span><span class="p">)</span>
+
+<span class="n">plants_kb</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;overwatering(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;fungal_infection(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;nutrient_deficiency(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;insufficient_light(X)&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plants_kb</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;underwatering(X)&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">rules</span> <span class="o">=</span> <span class="p">[</span>   
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s2">&quot;overwatering(X) :- wilting(X), yellow_leavs(X)&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s2">&quot;fungal_infection(X) :- brown_spot(X), mold(X)&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="s2">&quot;underwatering(X) :- drooping(X), leaf_drop(X)&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">i_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;wilting&quot;</span><span class="p">,</span><span class="s2">&quot;yellow_leavs&quot;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">x</span><span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;isues : &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python312\site-packages\ipykernel\kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ai"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tp1_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PW 1.1 : Prolog Exercise - Family Relations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../compilation/tp1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PW1 : LexicalAnalyzer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-optional">Exercise 3 (Optional)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plant-care-diagnostic-system">Plant Care Diagnostic System</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By B A.J Amar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1378 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PW 0: Intro to Python (Group 1) &#8212; CSE 3 PW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ai/tp0';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PW 1.0: Prolog In Python" href="tp1_0.html" />
+    <link rel="prev" title="Welcome to CSE 3 PW Jupyter Book" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CSE 3 PW</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CSE 3 PW Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction To AI</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PW 0: Intro to Python (Group 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp1_0.html">PW 1.0: Prolog In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp1_1.html">PW 1.1 : Prolog Exercise - Family Relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp2.html">PW 2: Prolog with python (Group 1 3ING)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Compilation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../compilation/tp1.html">PW1 : LexicalAnalyzer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../numerical_analysis/tp1.html">PW1 : Numpy (arrays &amp; matrixs )</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical_analysis/tp2.html">PW2 : Int &amp; Float</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical_analysis/tp3.html">Serie 1</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/B-AJ-Amar/CSE3-PW" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/B-AJ-Amar/CSE3-PW/issues/new?title=Issue%20on%20page%20%2Fai/tp0.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ai/tp0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>PW 0: Intro to Python (Group 1)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-python-concepts"><strong>Additional Python Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">1. <strong>String Methods</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-output">2. <strong>Input and Output</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-type-conversions">3. <strong>Data Type Conversions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-instructions">🚨 Important Instructions 🚨</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-6">Question 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-7">Question 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-8">Question 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9">Question 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10">Question 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11">Question 11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-12">Question 12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-13">Question 13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-14">Question 14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-15">Question 15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-16">Question 16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-17">Question 17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-18">Question 18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-19">Question 19</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-20">Question 20</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-21">Question 21</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-22">Question 22</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-23">Question 23</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-24">Question 24</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">Hints</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pw-0-intro-to-python-group-1">
+<h1>PW 0: Intro to Python (Group 1)<a class="headerlink" href="#pw-0-intro-to-python-group-1" title="Link to this heading">#</a></h1>
+<section id="additional-python-concepts">
+<h2><strong>Additional Python Concepts</strong><a class="headerlink" href="#additional-python-concepts" title="Link to this heading">#</a></h2>
+<p>To complement the provided material, the following Python concepts are crucial for solving the exercises.</p>
+</section>
+<section id="string-methods">
+<h2>1. <strong>String Methods</strong><a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Uppercase</strong>: Convert a string to uppercase using <code class="docutils literal notranslate"><span class="pre">.upper()</span></code>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>  <span class="c1"># Output: HELLO WORLD</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Lowercase</strong>: Convert a string to lowercase using <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;HELLO WORLD&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>  <span class="c1"># Output: HELLO WORLD</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Splitting Strings</strong>: Use <code class="docutils literal notranslate"><span class="pre">.split()</span></code> to divide a string into a list.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Hello,Computer,Science&quot;</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>  <span class="c1"># Output: [&#39;Hello&#39;, &#39;Computer&#39;, &#39;Science&#39;]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Joining Strings</strong>: Use <code class="docutils literal notranslate"><span class="pre">.join()</span></code> to concatenate a list of strings into a single string with a specified separator.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>  <span class="c1"># Output: &#39;hello world&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="input-and-output">
+<h2>2. <strong>Input and Output</strong><a class="headerlink" href="#input-and-output" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">input()</span></code></strong>: This function allows the user to input data from the console. The input is always read as a string.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>To handle multiple comma-separated values in one input, use the <code class="docutils literal notranslate"><span class="pre">split()</span></code> method.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter numbers: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Print in the Same Line</strong>: To print without moving to a new line after each print, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="data-type-conversions">
+<h2>3. <strong>Data Type Conversions</strong><a class="headerlink" href="#data-type-conversions" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Convert to Integer</strong>: You can convert a string or a float to an integer using the <code class="docutils literal notranslate"><span class="pre">int()</span></code> function.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_str</span> <span class="o">=</span> <span class="s2">&quot;10&quot;</span>
+<span class="n">num_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_str</span><span class="p">)</span>  <span class="c1"># Converts &quot;10&quot; to 10</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Convert to String</strong>: You can convert an integer or a float to a string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">num_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c1"># Converts 123 to &quot;123&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Convert to List</strong>: You can convert a string to a list of characters using <code class="docutils literal notranslate"><span class="pre">list()</span></code>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">text_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Converts &quot;hello&quot; to [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Convert to Tuple</strong>: You can convert a list or string to a tuple using <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">text_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Converts &quot;hello&quot; to (&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="important-instructions">
+<h2>🚨 Important Instructions 🚨<a class="headerlink" href="#important-instructions" title="Link to this heading">#</a></h2>
+<p>Please rename the file to include your first name and last name.
+Example: <code class="docutils literal notranslate"><span class="pre">Group1_FirstName_LastName_tp1.ipynb</span></code>
+No AI tools allowed! 🚫🤖</p>
+</section>
+<section id="question-1">
+<h2>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a generator function to iterate through numbers between 0 and n that are divisible by 5.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">div_5</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">div_5</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2">
+<h2>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a function that can receive two integers in string form, multiply them, and print the result.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_strs</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3">
+<h2>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a function that accepts two strings as input and prints the string with the smallest length. If they have the same length, print both strings.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_len</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">&gt;</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4">
+<h2>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>With a tuple <code class="docutils literal notranslate"><span class="pre">(1,2,3,4,5,6,7,8,9,10)</span></code>, write a program to print every second value in the tuple.Expected Output: <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">8,</span> <span class="pre">10)</span></code></strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sec_value</span><span class="p">(</span><span class="n">a</span><span class="p">:(</span><span class="nb">int</span><span class="p">)):</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">sec_value</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 4, 6, 8, 10)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5">
+<h2>Question 5<a class="headerlink" href="#question-5" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to remove all odd numbers from <code class="docutils literal notranslate"><span class="pre">[3,6,9,12,15,18]</span></code>.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_odds</span><span class="p">(</span><span class="n">a</span><span class="p">:[</span><span class="nb">int</span><span class="p">]):</span> <span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0])
+<span class="n">remove_odds</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-6">
+<h2>Question 6<a class="headerlink" href="#question-6" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to find all numbers between 1500 and 2700 that are divisible by 7 but not multiples of 5. Print them as a comma-separated sequence.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">div_by_7_not_5</span><span class="p">():</span> 
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2700</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">7</span>==0 and x%5!=0: 
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>   
+    
+<span class="n">div_by_7_not_5</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1512,1519,1526,1533,1547,1554,1561,1568,1582,1589,1596,1603,1617,1624,1631,1638,1652,1659,1666,1673,1687,1694,1701,1708,1722,1729,1736,1743,1757,1764,1771,1778,1792,1799,1806,1813,1827,1834,1841,1848,1862,1869,1876,1883,1897,1904,1911,1918,1932,1939,1946,1953,1967,1974,1981,1988,2002,2009,2016,2023,2037,2044,2051,2058,2072,2079,2086,2093,2107,2114,2121,2128,2142,2149,2156,2163,2177,2184,2191,2198,2212,2219,2226,2233,2247,2254,2261,2268,2282,2289,2296,2303,2317,2324,2331,2338,2352,2359,2366,2373,2387,2394,2401,2408,2422,2429,2436,2443,2457,2464,2471,2478,2492,2499,2506,2513,2527,2534,2541,2548,2562,2569,2576,2583,2597,2604,2611,2618,2632,2639,2646,2653,2667,2674,2681,2688,
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-7">
+<h2>Question 7<a class="headerlink" href="#question-7" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong><em>With a given integer  n , write a program to generate a dictionary that contains key-value pairs  (i, i</em>i) , where  i  is an integer between  1  and  n  <strong>(both included)</strong>. The program should then print the dictionary.</strong>*</p>
+</div></blockquote>
+<p>Suppose the following input is supplied to the program:
+<code class="docutils literal notranslate"><span class="pre">8</span></code></p>
+<p>The output should be:
+<code class="docutils literal notranslate"><span class="pre">{1:</span> <span class="pre">1,</span> <span class="pre">2:</span> <span class="pre">4,</span> <span class="pre">3:</span> <span class="pre">9,</span> <span class="pre">4:</span> <span class="pre">16,</span> <span class="pre">5:</span> <span class="pre">25,</span> <span class="pre">6:</span> <span class="pre">36,</span> <span class="pre">7:</span> <span class="pre">49,</span> <span class="pre">8:</span> <span class="pre">64}</span></code></p>
+<p><strong>Hints</strong>:<br />
+Assume the input data is provided via the console. Use <code class="docutils literal notranslate"><span class="pre">input()</span></code> to read the string value and <code class="docutils literal notranslate"><span class="pre">int()</span></code> to convert it to an integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fact_dict</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="n">fact_dict</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-8">
+<h2>Question 8<a class="headerlink" href="#question-8" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program which accepts a sequence of comma-separated numbers from console and generate a list and a tuple which contains every number.
+Suppose the following input is supplied to the program:
+<code class="docutils literal notranslate"><span class="pre">&quot;34,67,55,33,12,98&quot;</span></code></strong></em>
+Then, the output should be:
+<code class="docutils literal notranslate"><span class="pre">['34',</span> <span class="pre">'67',</span> <span class="pre">'55',</span> <span class="pre">'33',</span> <span class="pre">'12',</span> <span class="pre">'98']</span></code>
+<code class="docutils literal notranslate"><span class="pre">('34',</span> <span class="pre">'67',</span> <span class="pre">'55',</span> <span class="pre">'33',</span> <span class="pre">'12',</span> <span class="pre">'98')</span></code></p>
+</div></blockquote>
+<p><strong>Hints:</strong>
+Use <code class="docutils literal notranslate"><span class="pre">input()</span></code> to read sequence of comma-separated numbers. Use <code class="docutils literal notranslate"><span class="pre">list.split()</span></code> method to divide a string into a list. Use <code class="docutils literal notranslate"><span class="pre">tuple()</span></code> function can convert list to tuple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">csv</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-9">
+<h2>Question 9<a class="headerlink" href="#question-9" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program that takes a sequence of lines (read line by line) as input and outputs the same lines with all characters converted to uppercase.</strong></em></p>
+</div></blockquote>
+<p>For example, if the following input is provided:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">world</span>
+<span class="n">Practice</span> <span class="n">makes</span> <span class="n">perfect</span>
+</pre></div>
+</div>
+<p>The output should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HELLO</span> <span class="n">WORLD</span>
+<span class="n">PRACTICE</span> <span class="n">MAKES</span> <span class="n">PERFECT</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_upper</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;aflkj dslgkjsd&quot;</span><span class="p">,</span> <span class="s2">&quot;fadkgjsdl&quot;</span><span class="p">]:</span> <span class="n">to_upper</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AFLKJ DSLGKJSD
+FADKGJSDL
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-10">
+<h2>Question 10<a class="headerlink" href="#question-10" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.</strong></em></p>
+</div></blockquote>
+<p>Suppose the following input is supplied to the program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="n">world</span> <span class="ow">and</span> <span class="n">practice</span> <span class="n">makes</span> <span class="n">perfect</span> <span class="ow">and</span> <span class="n">hello</span> <span class="n">world</span> <span class="n">again</span>
+</pre></div>
+</div>
+<p>Then, the output should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">again</span> <span class="ow">and</span> <span class="n">hello</span> <span class="n">makes</span> <span class="n">perfect</span> <span class="n">practice</span> <span class="n">world</span>
+</pre></div>
+</div>
+<p>Hints:</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">set()</span></code>  to remove duplicated data automatically (by converting list to set) and then use sorted() to sort the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_duplicates</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span> <span class="p">)</span> <span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">remove_duplicates</span><span class="p">(</span><span class="s2">&quot;hello world and practice makes perfect and hello world again&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello again perfect and world makes practice
+None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-11">
+<h2>Question 11<a class="headerlink" href="#question-11" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Define a function which can generate a dictionary where the keys are numbers between <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(20\)</span> (both included) and the values are square of keys. The function should just print the keys only.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_dict_keys</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> 
+    <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">square_dict_keys</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([1, 2, 3, 4, 5, 6, 7, 8])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-12">
+<h2>Question 12<a class="headerlink" href="#question-12" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Define a function that can generate a list where the values are the squares of numbers between 1 and 19 , with a step = 2 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">9,</span> <span class="pre">11,</span> <span class="pre">13,</span> <span class="pre">15,</span> <span class="pre">17,</span> <span class="pre">19]</span></code> . The function should then print the first 5 elements from the generated list.</strong></em></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>the function should print the squares of numbers like <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">9,</span> <span class="pre">25,</span> <span class="pre">49,</span> <span class="pre">81]</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sqr</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+    
+<span class="n">sqr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 9, 25, 49, 81]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-13">
+<h2>Question 13<a class="headerlink" href="#question-13" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program that generates all possible sentences where the subject is chosen from <code class="docutils literal notranslate"><span class="pre">[&quot;She&quot;,</span> <span class="pre">&quot;They&quot;]</span></code>, the verb is chosen from <code class="docutils literal notranslate"><span class="pre">[&quot;Watch&quot;,</span> <span class="pre">&quot;Enjoy&quot;]</span></code>, and the object is chosen from <code class="docutils literal notranslate"><span class="pre">[&quot;Movies&quot;,</span> <span class="pre">&quot;Series&quot;]</span></code>.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">all_posible_com</span><span class="p">():</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;She&quot;</span><span class="p">,</span> <span class="s2">&quot;They&quot;</span><span class="p">],[</span><span class="s2">&quot;Watch&quot;</span><span class="p">,</span> <span class="s2">&quot;Enjoy&quot;</span><span class="p">],[</span><span class="s2">&quot;Movies&quot;</span><span class="p">,</span> <span class="s2">&quot;Series&quot;</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-14">
+<h2>Question 14<a class="headerlink" href="#question-14" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to count the number of occurrences of each word in a given sentence.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="p">}</span> <span class="p">)</span>
+    
+
+<span class="n">count_words</span><span class="p">(</span><span class="s2">&quot;hello world and practice makes perfect and hello world again&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;hello&#39;: 2, &#39;again&#39;: 1, &#39;perfect&#39;: 1, &#39;and&#39;: 2, &#39;world&#39;: 2, &#39;makes&#39;: 1, &#39;practice&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-15">
+<h2>Question 15<a class="headerlink" href="#question-15" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to check if a number is a palindrome.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">is_palindrome</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-16">
+<h2>Question 16<a class="headerlink" href="#question-16" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>With two given lists [1,3,6,78,35,55] and [12,24,35,24,88,120,155], write a program to make a list whose elements are intersection of the above given lists.</strong></em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>Hints:</strong> Use built-in function set() and <code class="docutils literal notranslate"><span class="pre">intersection()</span></code> method to do set intersection operation.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">55</span><span class="p">}</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">155</span><span class="p">}</span>
+
+<span class="c1"># Convert both lists to sets and find their intersection</span>
+<span class="n">intersection</span> <span class="o">=</span> <span class="n">set1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span>
+
+<span class="c1"># Convert the resulting set back to a list</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">intersection</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intersection</span><span class="p">)</span>  <span class="c1"># Output: {35, 55}</span>
+</pre></div>
+</div>
+<p>In this example, the elements<code class="docutils literal notranslate"><span class="pre">35</span></code> and <code class="docutils literal notranslate"><span class="pre">55</span></code> are common to both lists, so it will be the only element in the intersection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="n">a</span><span class="p">:[</span><span class="nb">int</span><span class="p">],</span><span class="n">b</span><span class="p">:[</span><span class="nb">int</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+<span class="n">intersection</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 5, 7, 9]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-17">
+<h2>Question 17<a class="headerlink" href="#question-17" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to generate a 3x3 matrix where each element is 0.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zeros_3_3</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-18">
+<h2>Question 18<a class="headerlink" href="#question-18" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program that takes a 2D matrix as input and prints its transpose. The transpose of a matrix is obtained by swapping rows with columns.</strong></em></p>
+</div></blockquote>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">Matrix</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">Output</span> <span class="n">Transpose</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">transpose_matrix</span><span class="p">(</span><span class="n">a</span><span class="p">:[[</span><span class="nb">int</span><span class="p">]]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="n">transpose_matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-19">
+<h2>Question 19<a class="headerlink" href="#question-19" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to compute the following sum for a given integer <code class="docutils literal notranslate"><span class="pre">n</span></code> (n &gt; 0):</strong></em>
+1/2 + 2/3 + 3/4 + … + \ n/(n+1)</p>
+</div></blockquote>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>If the following <code class="docutils literal notranslate"><span class="pre">n</span></code> is given as input to the program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Then, the output of the program should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">3.55</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_1_n</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_1_n</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.55
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-20">
+<h2>Question 20<a class="headerlink" href="#question-20" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program that multiplies two matrices. The program should take two matrices as input and output the resulting matrix after multiplication. Assume the matrices are compatible for multiplication.</strong></em></p>
+</div></blockquote>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span> <span class="n">A</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">Matrix</span> <span class="n">B</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">Output</span> <span class="n">Matrix</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">):</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">61</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">95</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">117</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">matrix_mul</span><span class="p">(</span><span class="n">a</span><span class="p">:[[</span><span class="nb">int</span><span class="p">]],</span><span class="n">b</span><span class="p">:[[</span><span class="nb">int</span><span class="p">]]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+
+<span class="n">matrix_mul</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span>  <span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 27  30  33]
+ [ 61  68  75]
+ [ 95 106 117]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-21">
+<h2>Question 21<a class="headerlink" href="#question-21" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string, age and height are numbers. The tuples are input by console.</strong></em>
+<em><strong>The sort criteria is:
+1: Sort based on name;
+2: Then sort based on age;
+3: Then sort by score.
+The priority is that name &gt; age &gt; score.</strong></em>
+If the following tuples are given as input to the program:</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tom</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">80</span>
+<span class="n">John</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">90</span>
+<span class="n">Jony</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">91</span>
+<span class="n">Jony</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">93</span>
+<span class="n">Json</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">85</span>
+</pre></div>
+</div>
+<p>Then, the output should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Jony&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;91&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Jony&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;93&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Json&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;85&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;19&#39;</span><span class="p">,</span> <span class="s1">&#39;80&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">operator</span>
+<span class="k">def</span> <span class="nf">multi_sort</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    
+<span class="n">multi_sort</span><span class="p">([</span> <span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;19&#39;</span><span class="p">,</span> <span class="s1">&#39;80&#39;</span><span class="p">),(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Jony&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;91&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Jony&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;93&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Json&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span> <span class="s1">&#39;85&#39;</span><span class="p">)]</span>   <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;John&#39;, &#39;20&#39;, &#39;90&#39;), (&#39;John&#39;, &#39;20&#39;, &#39;90&#39;), (&#39;Jony&#39;, &#39;17&#39;, &#39;91&#39;), (&#39;Jony&#39;, &#39;17&#39;, &#39;93&#39;), (&#39;Json&#39;, &#39;21&#39;, &#39;85&#39;), (&#39;Tom&#39;, &#39;19&#39;, &#39;80&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-22">
+<h2>Question 22<a class="headerlink" href="#question-22" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a binary search function <code class="docutils literal notranslate"><span class="pre">binary_search(arr,</span> <span class="pre">target)</span></code> which searches an item in a sorted list. The function should return the index of element to be searched in the list.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
+    <span class="n">l</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    
+    <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span> <span class="n">l</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">else</span> <span class="p">:</span> <span class="k">return</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">binary_search</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">binary_search</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-23">
+<h2>Question 23<a class="headerlink" href="#question-23" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>Write a program to print the elements of a matrix in a spiral order. The matrix should be traversed in a spiral starting from the top-left corner.</strong></em></p>
+</div></blockquote>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">Matrix</span><span class="p">:</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">Output</span> <span class="p">(</span><span class="n">Spiral</span> <span class="n">Order</span><span class="p">):</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">spiral_order</span><span class="p">(</span><span class="n">arr</span><span class="p">:[[</span><span class="nb">int</span><span class="p">]]):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+            
+<span class="n">spiral_order</span><span class="p">([</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-24">
+<h2>Question 24<a class="headerlink" href="#question-24" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em><strong>You are given an integer, N. Your task is to print an alphabet rangoli of size N. (Rangoli is a form of Indian folk art based on creation of patterns.)</strong></em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em><strong>Different sizes of alphabet rangoli are shown below:</strong></em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#size 3</span>
+
+<span class="o">----</span><span class="n">c</span><span class="o">----</span>
+<span class="o">--</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">--</span>
+<span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">c</span>
+<span class="o">--</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">--</span>
+<span class="o">----</span><span class="n">c</span><span class="o">----</span>
+
+<span class="c1">#size 5</span>
+
+<span class="o">--------</span><span class="n">e</span><span class="o">--------</span>
+<span class="o">------</span><span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span><span class="o">------</span>
+<span class="o">----</span><span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span><span class="o">----</span>
+<span class="o">--</span><span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span><span class="o">--</span>
+<span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span>
+<span class="o">--</span><span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span><span class="o">--</span>
+<span class="o">----</span><span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span><span class="o">----</span>
+<span class="o">------</span><span class="n">e</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">e</span><span class="o">------</span>
+<span class="o">--------</span><span class="n">e</span><span class="o">--------</span>
+</pre></div>
+</div>
+</div></blockquote>
+<section id="hints">
+<h3>Hints<a class="headerlink" href="#hints" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><em><strong>First print the half of the Rangoli in the given way and save each line in a list. Then print the list in reverse order to get the rest.</strong></em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+
+<span class="k">def</span> <span class="nf">print_rangoli</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">[:</span><span class="n">size</span><span class="p">]</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">size</span><span class="p">])</span> <span class="c1"># this should return : c-b-a-b-c</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">size</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">))</span>            <span class="c1"># this should return : --c-b-a-b-c--</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+
+<span class="n">print_rangoli</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">print_rangoli</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--b--
+b-a-b
+--b--
+--------e--------
+------e-d-e------
+----e-d-c-d-e----
+--e-d-c-b-c-d-e--
+e-d-c-b-a-b-c-d-e
+--e-d-c-b-c-d-e--
+----e-d-c-d-e----
+------e-d-e------
+--------e--------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ai"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to CSE 3 PW Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tp1_0.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PW 1.0: Prolog In Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-python-concepts"><strong>Additional Python Concepts</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">1. <strong>String Methods</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-output">2. <strong>Input and Output</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-type-conversions">3. <strong>Data Type Conversions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-instructions">🚨 Important Instructions 🚨</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-6">Question 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-7">Question 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-8">Question 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-9">Question 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10">Question 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-11">Question 11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-12">Question 12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-13">Question 13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-14">Question 14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-15">Question 15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-16">Question 16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-17">Question 17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-18">Question 18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-19">Question 19</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-20">Question 20</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-21">Question 21</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-22">Question 22</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-23">Question 23</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-24">Question 24</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">Hints</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By B A.J Amar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
